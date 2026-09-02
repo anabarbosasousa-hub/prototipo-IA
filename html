@@ -1,0 +1,165 @@
+PE <!DOCTYhtml>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA: Mapeando Ideias & Prototipando Soluções</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <!-- Lucide Icons -->
+  <script src="[https://unpkg.com/lucide@latest](https://unpkg.com/lucide@latest)"></script>
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Cabeçalho -->
+  <header class="bg-indigo-600 text-white shadow-md py-4 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+      <div class="flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-6 h-6 text-indigo-200"></i>
+        <h1 class="text-lg font-bold">Ideias & Protótipos de IA</h1>
+      </div>
+      <!-- Barra de Progresso -->
+      <div class="flex gap-2">
+        <button onclick="setStep(1)" id="tab-1" class="px-3 py-1 text-xs font-semibold rounded-lg bg-white text-indigo-700 shadow">1. Problema</button>
+        <button onclick="setStep(2)" id="tab-2" class="px-3 py-1 text-xs font-semibold rounded-lg text-indigo-100 hover:bg-indigo-500">2. Persona</button>
+        <button onclick="setStep(3)" id="tab-3" class="px-3 py-1 text-xs font-semibold rounded-lg text-indigo-100 hover:bg-indigo-500">3. Solução</button>
+        <button onclick="setStep(4)" id="tab-4" class="px-3 py-1 text-xs font-semibold rounded-lg text-indigo-100 hover:bg-indigo-500">4. Protótipo</button>
+        <button onclick="setStep(5)" id="tab-5" class="px-3 py-1 
+  <!-- Conteúdo Principal -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- Formulário do Passo Ativo -->
+    <div class="md:col-span-2 bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex flex-col justify-between">
+      
+      <!-- Passo 1: Problema -->
+      <div id="step-1" class="step-box space-y-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+            <i data-lucide="alert-circle" class="text-amber-500 w-5 h-5"></i> 1. Definir o Problema
+          </h2>
+          <p class="text-xs text-slate-500">Qual desafio quer resolver usando Inteligência Artificial?</p>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">Qual é o problema?</label>
+          <input type="text" id="p-title" placeholder="Ex: Grande desperdício de alimentos em restaurantes" class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">Por que motivo este problema acontece?</label>
+          <textarea id="p-desc" rows="3" placeholder="Ex: Difícil prever a quantidade exata de clientes a cada dia..." class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+        </div>
+        <button onclick="loadDemo()" class="text-xs text-indigo-600 hover:underline flex items-center gap-1 font-medium">
+          <i data-lucide="zap" class="w-3.5 h-3.5"></i> Preencher com exemplo
+        </button>
+      </div>
+
+      <!-- Passo 2: Persona -->
+      <div id="step-2" class="step-box hidden space-y-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+            <i data-lucide="user" class="text-indigo-500 w-5 h-5"></i> 2. Criar a Persona
+          </h2>
+          <p class="text-xs text-slate-500">Quem é a pessoa que mais sofre com este problema?</p>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">Nome e Profissão</label>
+          <input type="text" id="per-name" placeholder="Ex: Carlos, Gerente de Restaurante" class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">O que esta pessoa precisa?</label>
+          <textarea id="per-need" rows="3" placeholder="Ex: Comprar ingredientes na quantidade certa sem faltar nem sobrar..." class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+        </div>
+      </div>
+
+      <!-- Passo 3: Solução -->
+      <div id="step-3" class="step-box hidden space-y-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+            <i data-lucide="lightbulb" class="text-yellow-500 w-5 h-5"></i> 3. Pensar na Solução
+          </h2>
+          <p class="text-xs text-slate-500">Como a Inteligência Artificial vai ajudar?</p>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">Nome da Solução</label>
+          <input type="text" id="sol-name" placeholder="Ex: ChefPredict IA" class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">Como a IA resolve isto?</label>
+          <textarea id="sol-desc" rows="3" placeholder="Ex: Analisa vendas passadas e clima para prever a quantidade ideal de compras..." class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+        </div>
+      </div>
+
+      <!-- Passo 4: Protótipo -->
+      <div id="step-4" class="step-box hidden space-y-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+            <i data-lucide="layout" class="text-emerald-500 w-5 h-5"></i> 4. Desenvolver o Protótipo
+          </h2>
+          <p class="text-xs text-slate-500">Veja uma prévia simples do ecrã da solução.</p>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-700 mb-1">Tipo de Ecrã</label>
+          <select id="proto-type" onchange="renderProto()" class="w-full p-2.5 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none bg-white">
+            <option value="dash">Painel com Gráfico</option>
+            <option value="chat">Assistente em Chat</option>
+          </select>
+        </div>
+        <div class="border rounded-xl p-4 bg-slate-900 text-white min-h-[140px] flex items-center justify-center text-center text-xs" id="proto-preview">
+          <!-- Renderizado via JS -->
+        </div>
+      </div>
+
+      <!-- Passo 5: Apresentação -->
+      <div id="step-5" class="step-box hidden space-y-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+            <i data-lucide="presentation" class="text-purple-600 w-5 h-5"></i> 5. Resumo da Apresentação
+          </h2>
+          <p class="text-xs text-slate-500">Apresente a sua ideia de forma simples e direta.</p>
+        </div>
+        <div class="bg-indigo-950 text-white p-4 rounded-xl space-y-2 text-xs">
+          <p><strong>Problema:</strong> <span id="pitch-p">---</span></p>
+          <p><strong>Persona:</strong> <span id="pitch-per">---</span></p>
+          <p><strong>Solução IA:</strong> <span id="pitch-s">---</span></p>
+        </div>
+      </div>
+
+      <!-- Botões de Navegação -->
+      <div class="mt-6 pt-3 border-t flex justify-between">
+        <button id="btn-back" onclick="changeStep(-1)" class="px-3 py-1.5 rounded-lg text-slate-600 bg-slate-200 text-xs font-medium disabled:opacity-40" disabled>Voltar</button>
+        <button id="btn-next" onclick="changeStep(1)" class="px-4 py-1.5 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 text-xs font-medium">Avançar</button>
+      </div>
+
+    </div>
+
+    <!-- Painel Lateral: Resumo em Tempo Real -->
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 space-y-3">
+      <h3 class="text-xs font-bold uppercase text-slate-500 tracking-wider">Resumo do Projeto</h3>
+      
+      <div class="space-y-2 text-xs">
+        <div class="p-2 bg-slate-50 rounded border">
+          <span class="font-semibold text-indigo-600 block">1. Problema</span>
+          <span id="sum-p" class="text-slate-600">Pendente...</span>
+        </div>
+        <div class="p-2 bg-slate-50 rounded border">
+          <span class="font-semibold text-indigo-600 block">2. Persona</span>
+          <span id="sum-per" class="text-slate-600">Pendente...</span>
+        </div>
+        <div class="p-2 bg-slate-50 rounded border">
+          <span class="font-semibold text-indigo-600 block">3. Solução IA</span>
+          <span id="sum-s" class="text-slate-600">Pendente...</span>
+        </div>
+      </div>
+
+      <button onclick="exportSummary()" class="w-full py-2 bg-slate-800 text-white rounded-lg text-xs font-medium hover:bg-slate-900 transition">
+        Copiar Resumo
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Ficheiro de Script JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
